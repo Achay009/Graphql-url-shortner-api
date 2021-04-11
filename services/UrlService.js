@@ -7,6 +7,11 @@ export default class UrlService {
 
     }
 
+    async getUrl(slug) {
+        const url = await UrlModel.findOne({slug : slug});
+        return url;
+    }
+
     async shortenUrl(originalUrl, context) {
         let slug = nanoid(6);
         let shortUrl = context.req.protocol  + '://' + context.req.hostname + '/' + slug;
