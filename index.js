@@ -40,7 +40,7 @@ app.use('/graphiql', graphqlHTTP((req, res, graphQLParams) => ({
     },
 })));
 
-// app.use('/', api());
+app.use('/', api);
 
 app.use((err, req, res, next) => {
     if (! err.status) {
@@ -54,7 +54,7 @@ app.use((err, req, res, next) => {
     })
 });
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 app.listen(port, function() {
     console.log(`Listening on Port http://localhost:${port}`);
 });

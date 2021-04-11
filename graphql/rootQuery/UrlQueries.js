@@ -1,4 +1,5 @@
 import {UrlType} from '../types/UrlType.js';
+import { UrlModel } from '../../models/UrlModel.js';
 import graphql from 'graphql';
 import UrlService from '../../services/UrlService.js'
 
@@ -7,10 +8,14 @@ let { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt, Gr
 
 export const getUrl = {
     type : UrlType,
-    args: { slug: { type: GraphQLNonNull(GraphQLString) } },
+    args: {
+        slug: { type: GraphQLNonNull(GraphQLString) }
+    },
     async resolve(parent, args) {
+
         let urlServiceInstance = new UrlService();
-        let url = urlServiceInstance.getUrl(args.slug);
+        let url = await urlServiceInstance.getUrl(args.slug);
+        
         return url;
     }
 }
@@ -20,6 +25,7 @@ export const getAllUrl = {
     async resolve(parent, args) {
         let urlServiceInstance = new UrlService();
         let urls = await urlServiceInstance.getAllUrl();
+       
         return urls
     }
 }

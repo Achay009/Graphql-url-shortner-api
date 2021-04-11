@@ -8,7 +8,7 @@ export default class UrlService {
     }
 
     async getUrl(slug) {
-        const url = await UrlModel.find({slug : slug});
+        const url = await UrlModel.findOne({slug : slug});
         return url;
     }
 

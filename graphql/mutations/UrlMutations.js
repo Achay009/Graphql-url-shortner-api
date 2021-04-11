@@ -10,18 +10,19 @@ const schema = yup.object().shape({
 })
 
 export const shortenUrl = {
-    type: GraphQLString,
+    type: UrlType,
     args: {
         url : { type: GraphQLNonNull(GraphQLString) },
     },
     async resolve(parent, args, context) {
         try {
+            
             let url = args.url;
             await schema.validate({url})
             let urlServiceInstance = new UrlService();
             let newUrl = urlServiceInstance.shortenUrl(url, context);
             
-            return newUrl.shortUrl
+            return newUrl
         } catch(error) {
             return error;
         }

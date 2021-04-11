@@ -8,6 +8,7 @@ export const UrlType = new GraphQLObjectType({
         id : { type: GraphQLID},
         slug : { type: GraphQLString},
         originalUrl : { type: GraphQLString},
+        shortUrl: { type: GraphQLString},
         expiresAt: { type: GraphQLString},
     }),
 });
