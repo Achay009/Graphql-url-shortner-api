@@ -5,7 +5,6 @@ import cors from 'cors';
 import morgan from 'morgan';
 import schema from './graphql/schema.js';
 import api from './api/routes/index.js';
-import GraphqlContext from './api/middleware/GraphqlContext.js';
 import dotenv from 'dotenv'
 // import {RedirectUrl} from './api/Controllers/UrlController.js'
 const app = express();
