@@ -9,6 +9,9 @@
     "dev": "nodemon index.js",
     "start": "node node.js"
   },
+  "engines": {
+    "node" : "13.x"
+  },
   "author": "Achay",
   "license": "ISC",
   "dependencies": {
