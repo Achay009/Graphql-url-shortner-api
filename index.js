@@ -11,7 +11,7 @@ const app = express();
 const {graphqlHTTP} = graphqlExpress;
 dotenv.config()
 
-mongoose.connect('mongodb+srv://bedspace:bedspace@cluster0.i7axl.mongodb.net/url?retryWrites=true&w=majority', {
+mongoose.connect(process.env.DB_CONNECTION, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
