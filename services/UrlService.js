@@ -13,7 +13,7 @@ export default class UrlService {
     }
 
     async shortenUrl(originalUrl, context) {
-        let slug = nanoid(5);
+        let slug = nanoid(6);
         let shortUrl = context.req.protocol  + '://' + context.req.hostname + '/' + slug;
         let expiresAt = moment().add(10, 'days').calendar();
         let data = {

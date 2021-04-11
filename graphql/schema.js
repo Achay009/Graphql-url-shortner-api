@@ -1,26 +1,17 @@
 import graphql from 'graphql';
-import { getUrl, getAllUrl} from './rootQuery/UrlQueries.js';
-import {shortenUrl} from './mutations/UrlMutations.js'
+import {getAllUrl, shortenURL} from './rootQuery/UrlQueries.js';
 
 let { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt, GraphQLList, GraphQLNonNull } = graphql;
 
-
+//getAllUrl is just an additional function to look up all saved urls
 const Query = new GraphQLObjectType({
     name : 'Query',
     fields : ()=> ({
-        getUrl,
+        shortenURL,
         getAllUrl
     }),
 });
 
-const Mutation = new GraphQLObjectType({
-    name : 'Mutation',
-    fields : () => ({
-        shortenUrl
-    }),
-});
-
 export default new GraphQLSchema({
-    query: Query,
-    mutation: Mutation
+    query: Query
 })
