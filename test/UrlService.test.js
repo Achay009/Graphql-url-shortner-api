@@ -8,9 +8,6 @@ describe('UrlService function definitions', () => {
     test('Get All Urls should be defined', () => {
         expect(urlServiceInstance.getAllUrl).toBeDefined()
     });
-    test('Get A single Url function should be defined', () => {
-        expect(urlServiceInstance.getUrl).toBeDefined()
-    });
     test('Shorten Url function should be defined', () => {
         expect(urlServiceInstance.shortenUrl).toBeDefined()
     });
