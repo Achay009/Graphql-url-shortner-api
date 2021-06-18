@@ -31,6 +31,7 @@ jobs:
       - run:
             name: "echo an env var that is part of our project"
             command: |
+              touch ~/output.txt
               echo "text to output here" > ~/output.txt.
       - persist_to_workspace:
           root: ~/
