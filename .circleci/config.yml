@@ -31,18 +31,18 @@ jobs:
       - run:
             name: "echo an env var that is part of our project"
             command: |
-              ls
+              echo "text to output here" > output.txt.
       - persist_to_workspace:
-          root: ~/
+          root: ~/home/circleci/
           paths:
             - output.txt
-  # print_output_file:
-  #   docker:
-  #     - image: circleci/node:13.8.0
-  #   steps:
-  #     - attach_workspace:
-  #         at: ~/
-  #     - run: cat ~/output.txt
+  print_output_file:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - attach_workspace:
+          at: ~/home/circleci/
+      - run: cat ~/output.txt
 workflows:
   # Name the workflow "welcome"
   welcome:
@@ -55,6 +55,6 @@ workflows:
             - print_hello
       - print_env
       - save_hello_world_output
-      # - print_output_file:
-      #     requires:
-      #       - save_hello_world_output
+      - print_output_file:
+          requires:
+            - save_hello_world_output
