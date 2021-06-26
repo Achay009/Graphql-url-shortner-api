@@ -81,10 +81,11 @@ workflows:
       - print_world:
           requires:
             - print_hello
-      - print_env
-      - save_hello_world_output
-      - print_workflow_id
-      - print_output_file:
-          requires:
-            - save_hello_world_output
-      - failure_job
+      - print_env:
+          context: pipeline_project_1
+      # - save_hello_world_output
+      # - print_workflow_id
+      # - print_output_file:
+      #     requires:
+      #       - save_hello_world_output
+      # - failure_job
